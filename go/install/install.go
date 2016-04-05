@@ -28,10 +28,11 @@ const (
 	ComponentNameCLI     ComponentName = "cli"
 	ComponentNameService ComponentName = "service"
 	ComponentNameKBFS    ComponentName = "kbfs"
+	ComponentNameUpdater ComponentName = "updater"
 	ComponentNameUnknown ComponentName = "unknown"
 )
 
-var ComponentNames = []ComponentName{ComponentNameCLI, ComponentNameService, ComponentNameKBFS}
+var ComponentNames = []ComponentName{ComponentNameCLI, ComponentNameService, ComponentNameKBFS, ComponentNameUpdater}
 
 func (c ComponentName) String() string {
 	switch c {
@@ -41,6 +42,8 @@ func (c ComponentName) String() string {
 		return "Service"
 	case ComponentNameKBFS:
 		return "KBFS"
+	case ComponentNameUpdater:
+		return "Updater"
 	}
 	return "Unknown"
 }
@@ -53,6 +56,8 @@ func ComponentNameFromString(s string) ComponentName {
 		return ComponentNameService
 	case string(ComponentNameKBFS):
 		return ComponentNameKBFS
+	case string(ComponentNameUpdater):
+		return ComponentNameUpdater
 	}
 	return ComponentNameUnknown
 }
